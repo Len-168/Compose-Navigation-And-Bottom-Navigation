@@ -24,7 +24,8 @@ import com.example.onlineshopping.config.NavigationRoutes
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun DashBoardScreen() {
+//                  rootNav from Main App
+fun DashBoardScreen(rootNavController:NavHostController) {
 
     val navHostController = rememberNavController()
 
@@ -58,7 +59,8 @@ fun DashBoardScreen() {
         NavHost(
             navController = navHostController, startDestination = BottomNavigationScreen.Home.routes,
         ) {
-            composable(route = BottomNavigationScreen.Home.routes) { HomeScreen() }
+            composable(route = BottomNavigationScreen.Home.routes) { HomeScreen(rootNavController) }
+
             composable(route = BottomNavigationScreen.Notification.routes) { NotificationScreen() }
             composable(route = BottomNavigationScreen.Order.routes) { OrderScreen() }
             composable(route = BottomNavigationScreen.Profile.routes) { ProfileScreen() }
