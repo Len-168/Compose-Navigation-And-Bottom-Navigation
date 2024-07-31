@@ -1,6 +1,5 @@
-package com.example.onlineshopping.feature
+package com.example.onlineshopping.feature.LoginRoute
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,12 +12,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.onlineshopping.config.NavigationRoutes
-import kotlin.random.Random
 
 @Composable
-fun HomeScreen(navHostController: NavHostController,) {
+fun LoginScreen(navHostController: NavHostController, loginViewModel: LoginVM = viewModel()) {
     Scaffold {
         Column(
             modifier = Modifier
@@ -28,20 +27,11 @@ fun HomeScreen(navHostController: NavHostController,) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Button(onClick = {
-                val xx = Random.nextInt(from = 1, until = 10)
-                if(xx % 2 == 0){
-                    navHostController.navigate(route = NavigationRoutes.LOGIN.routes){
-                        popUpTo(navHostController.graph.startDestinationRoute!!){
-
-                        }
-                    }
-                }
-                Log.d("Message",xx.toString())
+                //navHostController.navigate(route = NavigationRoutes.DASHBOARD.routes)
+                loginViewModel.Login("Len168")
             }) {
-
+                Text(text = "LOGIN SCREEN", fontWeight = FontWeight.Bold, fontSize = 20.sp)
             }
-
-            Text(text = "HOME SCREEN", fontWeight = FontWeight.Bold, fontSize = 20.sp)
         }
     }
 }

@@ -72,4 +72,10 @@ dependencies {
 
     //bottom Navigation
     implementation("androidx.compose.material:material:1.6.8")
+
+    // injection
+    implementation ("io.insert-koin:koin-android")
+    implementation("io.insert-koin:koin-core")
+    ///
+    implementation(platform("io.insert-koin:koin-bom:3.5.6"))
 }
